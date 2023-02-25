@@ -18,6 +18,7 @@ class Form extends Component {
       [name]: value,
     });
   };
+
   handleSubmit = e => {
     e.preventDefault();
 
@@ -28,7 +29,6 @@ class Form extends Component {
     };
 
     this.props.onSubmit(this.state);
-
     this.props.addContacts(newUser);
     this.reset();
   };
@@ -43,7 +43,6 @@ class Form extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h2>Phonebook</h2>
         <label htmlFor={this.nameId}>
           Name
           <input

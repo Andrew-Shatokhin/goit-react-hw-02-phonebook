@@ -3,6 +3,7 @@ import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout';
 import Form from './Form/Form';
 import Contacts from './Contacts/Contacts';
+import Filter from './Filter/Filter';
 
 export default class App extends Component {
   state = {
@@ -27,18 +28,32 @@ export default class App extends Component {
     });
   };
 
-  // changeFilter = e => {
-  //   this.setState({ filter: e.currentTarget.value });
-  // };
+  addFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+
+  getFilteredContacts = () => {
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
 
   render() {
+    const filteredContacts = this.getFilteredContacts();
     return (
       <Layout>
+        <h1>Phonebook</h1>
         <Form
           onSubmit={this.formSubmitHandler}
           addContacts={this.addContacts}
         />
-        <Contacts contacts={this.state.contacts} />
+        <h2>Contacts</h2>
+        <Filter value={this.state.filter} onChange={this.addFilter} />
+        <Contacts contacts={filteredContacts} />
+
         <GlobalStyle />
       </Layout>
     );

@@ -1,11 +1,11 @@
-// import React from 'react';
-// // import PropTypes from 'prop-types';
+import React from 'react';
+// import PropTypes from 'prop-types';
 
-// const Filter = () => {
-//   ret;
-// };
+const Filter = ({ value, onChange }) => (
+  <label>
+    Find contacts by name
+    <input type="text" value={value} onChange={onChange}></input>
+  </label>
+);
 
-// <label>
-//   Find contacts by name
-//   <input type="text" value={filter} onChange={this.changeFilter}></input>
-// </label>;
+export default Filter;
