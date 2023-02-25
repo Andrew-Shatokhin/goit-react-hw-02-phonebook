@@ -21,6 +21,14 @@ export default class App extends Component {
   };
 
   addContacts = newContact => {
+    if (
+      this.state.contacts.some(
+        item => item.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
+      return alert(`${newContact.name} is already in contacts`);
+    }
+
     this.setState(prevState => {
       return {
         contacts: [...prevState.contacts, newContact],
