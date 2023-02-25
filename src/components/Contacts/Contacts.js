@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-const Contacts = ({ contacts }) => {
+const Contacts = ({ contacts, onDelete }) => {
   return (
     <div>
       <ul>
@@ -10,6 +10,7 @@ const Contacts = ({ contacts }) => {
             <p>
               {name}: {number}
             </p>
+            <button onClick={() => onDelete(id)}>Delete</button>
           </li>
         ))}
       </ul>
