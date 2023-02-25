@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types';
-// import { nanoid } from 'nanoid';
 
 const Contacts = ({ contacts }) => {
   return (
