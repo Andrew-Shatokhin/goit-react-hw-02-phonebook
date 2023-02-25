@@ -4,6 +4,7 @@ import { Layout } from './Layout';
 import Form from './Form/Form';
 import Contacts from './Contacts/Contacts';
 import Filter from './Filter/Filter';
+import { Title, TitleSection } from './App.styled';
 
 export default class App extends Component {
   state = {
@@ -59,12 +60,12 @@ export default class App extends Component {
     const filteredContacts = this.getFilteredContacts();
     return (
       <Layout>
-        <h1>Phonebook</h1>
+        <Title>Phonebook</Title>
         <Form
           onSubmit={this.formSubmitHandler}
           addContacts={this.addContacts}
         />
-        <h2>Contacts</h2>
+        <TitleSection>Contacts</TitleSection>
         <Filter value={this.state.filter} onChange={this.addFilter} />
         <Contacts contacts={filteredContacts} onDelete={this.deleteContact} />
 
